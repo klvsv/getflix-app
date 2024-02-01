@@ -1,26 +1,21 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useState } from "react";
+import { SearchForm } from "../components/SearchForm";
+import { IMovie } from "../models/IMovie";
+import axios from "axios";
+import { IOmdbResponse } from "../models/IOmdbResponse";
 
 export const SearchApp = () => {
-	const [userSearchText, setUserSearchText] = useState("");
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setUserSearchText(e.target.value);
-	};
+	const [movies, setMovies] = useState<IMovie[]>();
 
-	const handleSubmit = (e: FormEvent) => {
-		e.preventDefault();
+	const searchMovies = async (searchText: string) => {
+		const response = await axios.get<IOmdbResponse>("http://www.omdbapi.com/?i=tt3896198&apikey=4f6b3c19&s=" + searchText);
+		setMovies(response.data.Search);
 	};
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<input
-					value={userSearchText}
-					onChange={handleChange}
-				/>
-				<button>Search</button>
-			</form>
-
-			<section>Search results</section>
+			<SearchForm search={searchMovies} />
+			<section>results</section>
 		</>
 	);
 };
