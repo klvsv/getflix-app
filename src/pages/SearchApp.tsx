@@ -3,6 +3,7 @@ import { SearchForm } from "../components/SearchForm";
 import { IMovie } from "../models/IMovie";
 import axios from "axios";
 import { IOmdbResponse } from "../models/IOmdbResponse";
+import { SearchResult } from "../components/SearchResult";
 
 export const SearchApp = () => {
 	const [movies, setMovies] = useState<IMovie[]>();
@@ -15,7 +16,7 @@ export const SearchApp = () => {
 	return (
 		<>
 			<SearchForm search={searchMovies} />
-			<section>results</section>
+			<SearchResult movies={movies} />
 		</>
 	);
 };
