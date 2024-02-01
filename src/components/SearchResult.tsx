@@ -7,11 +7,11 @@ interface ISearchResultProps {
 export const SearchResult = ({ movies }: ISearchResultProps) => {
 	return (
 		<>
-			<section>
+			<section id="searchResult">
 				{movies?.map((movie) => (
 					<div key={movie.imdbID}>
 						<h4>{movie.Title}</h4>
-						<div>
+						<div className="searchResultImg">
 							<img
 								src={movie.Poster}
 								alt={movie.Title}

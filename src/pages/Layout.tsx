@@ -4,7 +4,9 @@ import "./../styles/main.scss";
 export const Layout = () => {
 	return (
 		<>
-			<header></header>
+			<header>
+			<h1 className="getflixTitle">Getflix</h1>
+			</header>
 			<main>
 				<Outlet />
 			</main>

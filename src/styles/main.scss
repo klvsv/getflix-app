@@ -1,1 +1,12 @@
 @use "./layout";
+@use "./searchResult";
+
+:root {
+	background-color: rgb(27, 25, 25);
+	color: whitesmoke;
+}
+
+.getflixTitle {
+	font-family: "Bebas Neue", sans-serif;
+	color: crimson;
+}
